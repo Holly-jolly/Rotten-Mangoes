@@ -9,8 +9,9 @@ class Movie < ActiveRecord::Base
   has_many :reviews
   mount_uploader :avatar, AvatarUploader
   
+ 
   def review_average
-    reviews.sum(:rating_out_of_ten)/reviews.size if !reviews.size || reviews.size > 0 
+    reviews.size.zero? ? 0 : reviews.sum(:rating_out_of_ten)/reviews.size
   end 
 
   protected
