@@ -27,10 +27,10 @@ gem 'sdoc', '~> 0.4.0', group: :doc
 gem 'bcrypt', '~> 3.1.7'
 
 gem 'carrierwave'
-gem 'rmagick', :require => 'RMagick'
+gem 'rmagick', :require => 'rmagick'
 # Use Unicorn as the app server
 # gem 'unicorn'
-
+gem 'kaminari'
 # Use Capistrano for deployment
 # gem 'capistrano-rails', group: :development
 

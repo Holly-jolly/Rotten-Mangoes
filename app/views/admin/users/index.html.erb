@@ -1,6 +1,8 @@
-<%= link_to "Back to movies home", movies_path %>
+
 <% @users.each do |user| %>
-  <p>User ID: <%=user.id%> </p>
-  <p>Email: <%=user.email%> </p>
+  <p>User ID: <%=link_to user.id, admin_user_path(user) %> </p>
+  <p>Email: <%= link_to user.email, admin_user_path(user) %> </p>
   <p>Firstname:<%=user.firstname%> </p>
 <% end %>
+<%= paginate @users %>
+<%= link_to "Back to movies home", movies_path %></br>
