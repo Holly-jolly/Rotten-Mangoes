@@ -1,0 +1,6 @@
+<%= link_to "Back to movies home", movies_path %>
+<% @users.each do |user| %>
+  <p>User ID: <%=user.id%> </p>
+  <p>Email: <%=user.email%> </p>
+  <p>Firstname:<%=user.firstname%> </p>
+<% end %>
