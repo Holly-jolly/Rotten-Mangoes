@@ -30,7 +30,7 @@ class MoviesController < ApplicationController
       redirect_to movie_path(@movie)
     else
       render :edit
-      end
+    end
   end
 
   def destroy

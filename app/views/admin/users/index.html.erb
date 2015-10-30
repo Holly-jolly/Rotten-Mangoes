@@ -1,4 +1,3 @@
-
 <% @users.each do |user| %>
   <p>User ID: <%=link_to user.id, admin_user_path(user) %> </p>
   <p>Email: <%= link_to user.email, admin_user_path(user) %> </p>
