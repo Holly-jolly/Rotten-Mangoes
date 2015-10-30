@@ -32,6 +32,13 @@ class Admin::UsersController < ApplicationController
     end
   end
 
+  def destroy
+    @user = User.find(params[:id])
+    if @user.destroy
+      redirect_to admin_users_path(@user), notice: "User ID #{@user.id} has been deleted"
+    end
+  end
+
   protected 
   def user_params
     params.require(:user).permit(:email,:lastname,:firstname, :password,:password_confirmation)
