@@ -4,8 +4,17 @@ class Admin::UsersController < ApplicationController
   end
 
   def new
+    @user= User.new
   end
-
+  
+  def create
+    @user = User.new(user_params)
+    if @user.save
+      redirect_to new_admin_user_path,notice: "A new user is added"
+    else 
+      render :new #render an action's view
+    end
+  end
   def show
     @user = User.find(params[:id])   
   end
@@ -25,6 +34,6 @@ class Admin::UsersController < ApplicationController
 
   protected 
   def user_params
-    params.require(:user).permit(:email,:lastname,:firstname)
+    params.require(:user).permit(:email,:lastname,:firstname, :password,:password_confirmation)
   end
 end
