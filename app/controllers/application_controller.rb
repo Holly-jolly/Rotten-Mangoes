@@ -7,6 +7,11 @@ class ApplicationController < ActionController::Base
   def current_user
     @current_user ||= User.find(session[:user_id]) if session[:user_id]
   end
+  
+  # def admin_user 
+  #   binding.pry
+  #   current_user.admin == "t"
+  # end
 
   def restrict_access
     if !current_user
