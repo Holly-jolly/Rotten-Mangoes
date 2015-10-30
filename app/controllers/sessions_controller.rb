@@ -6,7 +6,11 @@ class SessionsController < ApplicationController
     user = User.find_by(email:params[:email])
     if user && user.authenticate(params[:password])
       session[:user_id] = user.id
-      redirect_to movies_path, notice: "welcome back, #{user.firstname}"
+      if user.admin == "t" 
+        redirect_to movies_path, notice: "Log in as admin"
+      else 
+        redirect_to movies_path, notice: "welcome back, #{user.firstname}"
+      end
     else
       flash.now[:alert] = "Log in failed.."
       render :new
