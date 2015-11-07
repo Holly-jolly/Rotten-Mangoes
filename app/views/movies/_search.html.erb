@@ -1,0 +1,29 @@
+  <%= form_tag movies_path, method: "get" do %>
+  <div>
+  <%= label_tag(:search_title, "Search for Movie Name:") %>
+  <%= text_field_tag(:search_title, params[:search_title]) %>
+  <%= label_tag(:search_director, "Search for Director:") %>
+  <%= text_field_tag(:search_director, params[:search_director]) %>
+  
+  <%#runtime dropdown list %>
+
+  <%=select_tag :runtime_in_minutes, 
+  "<option value <90> Under 90 minutes </option>".html_safe, 
+  "<option>Between 90 and 120 minutes/option>".html_safe,
+  "<option>Over 120 minutes/option>".html_safe,
+  multiple: true %>
+  <%= submit_tag("Search") %>
+  </div>
+  
+ 
+
+  <% end %>
+
+  <%#begin
+    
+  rescue Exception => e
+    
+  end<%=collection_select @movies 
+
+
+  =<% end -%>%>
