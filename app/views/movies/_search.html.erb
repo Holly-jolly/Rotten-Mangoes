@@ -7,11 +7,14 @@
   
   <%#runtime dropdown list %>
 
-  <%=select_tag :runtime_in_minutes, 
-  "<option value <90> Under 90 minutes </option>".html_safe, 
-  "<option>Between 90 and 120 minutes/option>".html_safe,
-  "<option>Over 120 minutes/option>".html_safe,
-  multiple: true %>
+  <%= label_tag(:runtime_in_minutes, "Run Time:") %>
+    <select name="runtime_in_minutes" id="runtime_in_minutes">
+    <option>Run time minutes</option>
+    <option value="1">Under 90 mins</option>
+    <option value="2">90-120 mins</option>
+    <option value="3">Over 120 mins</option>
+    </select>  
+
   <%= submit_tag("Search") %>
   </div>
   

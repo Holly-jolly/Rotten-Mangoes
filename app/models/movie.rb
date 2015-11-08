@@ -16,6 +16,21 @@ class Movie < ActiveRecord::Base
    
   scope :search_title, ->(search){ Movie.where('title like ?', "%#{search}%") }
   scope :search_director, ->(search){Movie.where('director like ?', "%#{search}%")}
+  # scope :duration_under90_search, -> { where('runtime_in_minutes < 90') }
+  # scope :duration_between_90_and_120_search, -> { where('runtime_in_minutes >= 90 AND runtime_in_minutes <= 120') }
+  # scope :duration_over120_search, -> { where('runtime_in_minutes > 120') }
+  
+  def self.search(runtime_in_minutes)
+    case runtime_in_minutes
+      when "1"
+        @movies = Movie.where("runtime_in_minutes < 90")
+      when "2"
+        @movies = Movie.where("runtime_in_minutes >= 90 AND runtime_in_minutes <= 120")
+      when "3"
+        @movies = Movie.where("runtime_in_minutes > 120")
+    end
+  end
+
   
   protected
 
