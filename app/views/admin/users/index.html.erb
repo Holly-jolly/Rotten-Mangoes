@@ -1,4 +1,13 @@
-<h4> Log in as an admin </h4>
+<div class="container">
+  <div class="row">
+    <h1>Rotten Mangoes </h1>
+  </div>
+
+<div class="home">
+  <%= link_to "Back to all movies", movies_path %><br/>
+</div>
+
+<h4 id="login"> Log in as an admin </h4>
 <%= link_to "Add a new user",new_admin_user_path(@user)%>
 <% @users.each do |user| %>
   <p>User ID: <%=link_to user.id, admin_user_path(user) %> </p>
@@ -6,4 +15,3 @@
   <p>Firstname:<%=user.firstname%> </p>
 <% end %>
 <%= paginate @users %>
-<%= link_to "Back to movies home", movies_path %></br>
