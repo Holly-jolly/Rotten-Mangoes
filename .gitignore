@@ -17,3 +17,6 @@
 /tmp
 
 /Procfile
+
+public/uploads/movie/*
+public/uploads/tmp/*
